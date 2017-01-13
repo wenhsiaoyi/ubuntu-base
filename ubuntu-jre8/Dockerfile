@@ -1,4 +1,5 @@
 FROM wenhsiaoyi/ubuntu-base
+
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 ENV LANG en_US.UTF-8
