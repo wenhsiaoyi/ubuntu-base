@@ -18,7 +18,7 @@ RUN \
         unzip \
         curl \
         wget \
-        ruby && \4cp
+        ruby && \
 
 # Remove cache
     apt-get clean && rm -rf /var/lib/apt/lists/* && \
