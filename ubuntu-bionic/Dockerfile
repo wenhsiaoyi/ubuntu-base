@@ -2,24 +2,28 @@ FROM ubuntu:bionic
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 # Common environment variables
-ENV DEBIAN_FRONTEND noninteractive && \
- LANG 'en_US.UTF-8' && \
- LANGUAGE 'en_US:en' && \
- LC_ALL 'en_US.UTF-8' && \
- TZ 'Asia/Taipei' && \
- export LC_ALL=$LANG && \
- export LANG=$LANG && \
- echo $TZ > /etc/timezone && \
- export PATH=/usr/java/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV TZ 'Asia/Taipei'
 
 
 # Install dependencies
 CMD echo Install dependencies
-RUN apt-get update \
-    && apt-get install -y software-properties-common apt-utils \
-    && add-apt-repository universe \
-    && apt-get update \
+RUN \
+    export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin  \
+        && export LANGUAGE="en_US.UTF-8"  \
+        && export LANG="en_US.UTF-8"  \
+        && export LC_ALL="en_US.UTF-8" \
+        && apt-get update \
     && apt-get -y upgrade \
+    && apt-get install -y apt-utils \
+    && apt-get install --reinstall locales && dpkg-reconfigure locales \
+    && locale-gen zh_TW zh_TW.UTF-8 zh_CN.UTF-8 en_US.UTF-8 \
+    && apt-get install -y software-properties-common \
+    && add-apt-repository universe \
+    && apt install  -y language-pack-en-base language-pack-zh-hant  language-pack-zh-hant-base language-pack-zh-hans language-pack-zh-hans-base \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         netbase \
@@ -34,10 +38,12 @@ RUN apt-get update \
         curl \
         wget \
         gnupg2 \
-        && apt-get clean \
+        && apt-get clean all \
         && rm -rf /var/cache/apk/* \
         && rm -rf /var/lib/apt/lists/* \
         && apt-get purge -y --auto-remove
+
+
 
 
 # Set environment variables.
@@ -48,4 +54,4 @@ WORKDIR /root
 
 CMD echo Build finish
 
-CMD ["bash"]
+CMD ["/bin/bash"]
