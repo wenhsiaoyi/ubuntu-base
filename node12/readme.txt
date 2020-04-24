@@ -5,7 +5,7 @@
 ## build image
 docker build -t wenhsiaoyi/ubuntu-base:node12 .
 docker login
-docker push wenhsialyi/ubuntu-base:node12
+docker push wenhsiaoyi/ubuntu-base:node12
 
 
 
@@ -24,14 +24,14 @@ docker run --rm -it wenhsiaoyi/ubuntu-base:node12
 ## git log 查詢 commit 的檢查碼
 
 ###加入該次commit的檢查碼
-$ git tag -a bionic 9fceb02
+$ git tag -a node12 8e168bd1f2c2c138c01617e80f49164f557451c3
 
 $ git tag
 
 
 
 
-$ git push origin bionic
+$ git push origin node12
 $ git push origin --tags
 
 
