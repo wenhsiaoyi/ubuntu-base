@@ -34,6 +34,7 @@ RUN \
         systemd \
         binutils \
         bzip2 \
+        nano \
         unzip \
         curl \
         wget \
