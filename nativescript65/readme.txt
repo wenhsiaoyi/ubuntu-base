@@ -58,3 +58,7 @@ git add filename
 git commit  -m ""
 
 
+# 檔案異動
+git add filename
+git commit -m "up"
+git push
