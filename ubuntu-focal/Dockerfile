@@ -27,6 +27,10 @@ RUN \
     && apt-get install -y --no-install-recommends \
         ca-certificates \
         netbase \
+        usbutils \
+        iproute2 \
+        net-tools \
+        iputils-ping \
         apt-transport-https \
         xz-utils \
         subversion \

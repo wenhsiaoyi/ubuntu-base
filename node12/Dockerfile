@@ -1,4 +1,4 @@
-FROM wenhsiaoyi/ubuntu-base:jdk11
+FROM wenhsiaoyi/ubuntu-base:jdk8
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 
