@@ -5,7 +5,7 @@
 ## build image
 docker build -t wenhsiaoyi/ubuntu-base:ns65 .
 docker login
-docker push wenhsialyi/ubuntu-base:ns65
+docker push wenhsiaoyi/ubuntu-base:ns65
 
 
 

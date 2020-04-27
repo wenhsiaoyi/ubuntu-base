@@ -44,7 +44,11 @@ RUN \
     unzip /opt/commandlinetools-linux-${ANDROID_SDK_VERSION}_latest.zip -d ${ANDROID_HOME}/ && \
     export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin" && \
     yes | ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
-    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME}  "tools"  "platform-tools" "platforms;android-29" "build-tools;29.0.3" "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" "extras;google;m2repository"
+    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME}  "tools"  "platform-tools" "platforms;android-29" \
+    "build-tools;29.0.3" "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" \
+    "extras;google;m2repository" \
+    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --version && \
+    echo 'export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin"' >> /root/.bashrc
     #unzip -o /opt/commandlinetools-linux-${ANDROID_SDK_VERSION}_latest.zip -d ${ANDROID_HOME}/
     #rm /opt/commandlinetools-linux-${ANDROID_SDK_VERSION}_latest.zip
 
@@ -53,10 +57,6 @@ RUN \
     npm install -g nativescript  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
-
-RUN \
-    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --version && \
-    echo 'export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin"' >> /root/.bashrc
 
 
 
