@@ -14,6 +14,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN \
     apt-get update -y && \
     apt-get upgrade -y && \
+    apt-get install -y build-essential && \
     npm install -g nativescript@5.4.2  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove

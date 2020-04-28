@@ -9,6 +9,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN \
     apt-get update -y && \
     apt-get upgrade -y && \
+    apt-get install -y build-essential \
+        g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 && \
     npm install -g nativescript@6.5.0  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
