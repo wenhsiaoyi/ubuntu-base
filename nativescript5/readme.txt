@@ -3,27 +3,23 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns65 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
+docker build -t wenhsiaoyi/ubuntu-base:ns5 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
 docker login
-docker push wenhsiaoyi/ubuntu-base:ns65
+docker push wenhsiaoyi/ubuntu-base:ns5
 
 
+# 每次重啟 container
+docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns5 wenhsiaoyi/ubuntu-base:ns5 tns
 
 
-docker run --rm -it wenhsiaoyi/ubuntu-base:ns65
+# 重複使用 container
+docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns5 wenhsiaoyi/ubuntu-base:ns5
 
+docker start -i ns5
 
-##
-docker run -it --rm wenhsiaoyi/ubuntu-base:ns65 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
+docker stop -i ns5
 
-
-docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns65 wenhsiaoyi/ubuntu-base:ns65
-
-
-
-docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns65 wenhsiaoyi/ubuntu-base:ns65
-
-docker start -i ns65
+docker container attach  ns5
 
 
 

@@ -1,4 +1,4 @@
 *.tmp
-nativescript65/gradle-6.3-bin.zip
-nativescript65/commandlinetools-linux-6200805_latest.zip
+android-sdk/gradle-6.3-bin.zip
+android-sdk/commandlinetools-linux-6200805_latest.zip
 nativescript65/license_accepter.sh

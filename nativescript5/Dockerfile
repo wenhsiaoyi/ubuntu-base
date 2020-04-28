@@ -4,12 +4,17 @@ MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 # Common environment variables
 ENV DEBIAN_FRONTEND noninteractive
+#ENV _JAVA_OPTIONS -XX:+UnlockExperimentalVMOptions  -Xms512m -Xmx1G
+#ENV GRADLE_HOME /opt/gradle
+# install android sdk
+#ENV ANDROID_HOME /opt/android-sdk/
 
+# support multiarch: i386 architecture
 # install essential tools
 RUN \
     apt-get update -y && \
     apt-get upgrade -y && \
-    npm install -g nativescript@6.5.0  --unsafe-perm \
+    npm install -g nativescript@5.4.2  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
 
