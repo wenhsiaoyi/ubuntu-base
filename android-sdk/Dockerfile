@@ -12,7 +12,7 @@ RUN dpkg --add-architecture i386 && \
 
 # Common environment variables
 ENV DEBIAN_FRONTEND noninteractive
-ENV _JAVA_OPTIONS -XX:+UnlockExperimentalVMOptions  -Xms512m -Xmx1G
+ENV _JAVA_OPTIONS -XX:+UnlockExperimentalVMOptions  -Xms64m -Xmx1G
 
 # download and install Gradle
 # https://services.gradle.org/distributions/
