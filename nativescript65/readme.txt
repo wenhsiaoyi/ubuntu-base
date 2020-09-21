@@ -13,6 +13,12 @@ docker push wenhsiaoyi/ubuntu-base:ns65
 docker run --rm -it wenhsiaoyi/ubuntu-base:ns65
 
 
+
+第一次
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns65 wenhsiaoyi/ubuntu-base:ns65 bash
+
+
+
 ##
 docker run -it --rm wenhsiaoyi/ubuntu-base:ns65 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
 

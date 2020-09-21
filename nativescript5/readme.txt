@@ -8,6 +8,10 @@ docker login
 docker push wenhsiaoyi/ubuntu-base:ns5
 
 
+第一次
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns5 wenhsiaoyi/ubuntu-base:ns5 bash
+
+
 # 每次重啟 container
 docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns5 wenhsiaoyi/ubuntu-base:ns5 tns
 
