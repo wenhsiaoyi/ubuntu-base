@@ -11,7 +11,7 @@ RUN \
     apt-get upgrade -y && \
     apt-get install -y build-essential \
         g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 && \
-    npm install -g nativescript@7.0.4  --unsafe-perm \
+    npm install -g nativescript@7.0.7  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
 
