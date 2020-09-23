@@ -39,14 +39,14 @@ git clean -fX
 
 
 ###加入該次commit的檢查碼
-$ git tag -a bionic 9fceb02
+$ git tag -a androidsdk e897094465
 
 $ git tag
 
 
 
 
-$ git push origin bionic
+$ git push origin androidsdk
 $ git push origin --tags
 
 
