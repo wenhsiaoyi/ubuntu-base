@@ -3,34 +3,36 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns65 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
+docker build -t wenhsiaoyi/ubuntu-base:ns68 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
 docker login
-docker push wenhsiaoyi/ubuntu-base:ns65
+docker push wenhsiaoyi/ubuntu-base:ns68
 
 
 
 
-docker run --rm -it wenhsiaoyi/ubuntu-base:ns65
+docker run --rm -it wenhsiaoyi/ubuntu-base:ns68
 
 
 
 第一次
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns65 wenhsiaoyi/ubuntu-base:ns65 bash
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns6 wenhsiaoyi/ubuntu-base:ns68 bash
 
 
 
 ##
-docker run -it --rm wenhsiaoyi/ubuntu-base:ns65 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
+docker run -it --rm wenhsiaoyi/ubuntu-base:ns68 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
 
 
-docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns65 wenhsiaoyi/ubuntu-base:ns65
+docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns6 wenhsiaoyi/ubuntu-base:ns68
 
 
 
-docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns65 wenhsiaoyi/ubuntu-base:ns65
+docker run --env JAVA_OPTS="-Xms1024M -Xmx2048M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns6 wenhsiaoyi/ubuntu-base:ns68
 
-docker start -i ns65
+docker start -i ns6
 
+# clean unused images
+docker image prune
 
 
 ## git log 查詢 commit 的檢查碼

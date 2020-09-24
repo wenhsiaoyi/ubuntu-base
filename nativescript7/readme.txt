@@ -3,7 +3,7 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns7 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
+docker build -t wenhsiaoyi/ubuntu-base:ns7 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30 .
 docker login
 docker push wenhsiaoyi/ubuntu-base:ns7
 
@@ -34,6 +34,10 @@ docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/proj
 
 
 docker start -i ns7
+
+
+# clean unused images
+docker image prune
 
 
 
