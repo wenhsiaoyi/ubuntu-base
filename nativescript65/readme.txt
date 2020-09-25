@@ -3,7 +3,7 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns68 --cache-from wenhsiaoyi/ubuntu-base:androidsdk .
+docker build -t wenhsiaoyi/ubuntu-base:ns68 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30 .
 docker login
 docker push wenhsiaoyi/ubuntu-base:ns68
 
