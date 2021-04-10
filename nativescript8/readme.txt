@@ -70,7 +70,7 @@ git clean -fX
 
 
 ###加入該次commit的檢查碼
-$ git tag -a ns7 fc96528
+git tag -a ns801 2ef233373e8
 
 $ git tag
 
