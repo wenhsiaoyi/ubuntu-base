@@ -77,7 +77,7 @@ $ git tag
 
 
 
-$ git push origin bionic
+$ git push origin
 $ git push origin --tags
 
 
