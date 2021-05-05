@@ -19,7 +19,7 @@ docker run --rm -it wenhsiaoyi/ubuntu-base:ns801
 
 
 第一次 create container
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns801 ns
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns801 bash
 
 進入容器
 docker start -i ns8

@@ -12,10 +12,10 @@ docker push wenhsiaoyi/ubuntu-base:ns68
 
 docker run --rm -it wenhsiaoyi/ubuntu-base:ns68
 
-
+alias ns6='docker start -i ns6'
 
 第一次
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns6 wenhsiaoyi/ubuntu-base:ns68 bash
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd`  --name ns6 wenhsiaoyi/ubuntu-base:ns68 bash
 
 
 
