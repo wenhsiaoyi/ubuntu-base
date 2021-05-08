@@ -24,7 +24,7 @@ docker run --rm -it wenhsiaoyi/ubuntu-base:node15
 ## git log 查詢 commit 的檢查碼
 
 ###加入該次commit的檢查碼
-$ git tag -a node15 8e168bd1f2c2c138c01617e80f49164f557451c3
+$ git tag -a node15 cd85c06
 
 $ git tag
 

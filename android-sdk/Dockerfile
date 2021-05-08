@@ -1,12 +1,10 @@
-FROM wenhsiaoyi/ubuntu-base:node10
+FROM wenhsiaoyi/ubuntu-base:node15
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 
 # support multiarch: i386 architecture
 # install essential tools
 RUN dpkg --add-architecture i386 && \
-    apt-get update -y && \
-    apt-get upgrade -y && \
     apt-get install -y --no-install-recommends g++ build-essential subversion nano usbutils iproute2 net-tools \
         iputils-ping libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386
 
@@ -23,7 +21,7 @@ ENV GRADLE_HOME /usr/local/gradle/
 # install android sdk
 ENV ANDROID_HOME /usr/local/android/sdk/
 ENV ANDROID_SDK_HOME $ANDROID_HOME
-ARG ANDROID_SDK_VERSION=6609375
+ARG ANDROID_SDK_VERSION=7302050
 
 
 COPY gradle-6.3-bin.zip /opt/
