@@ -1,4 +1,4 @@
-FROM wenhsiaoyi/ubuntu-base:androidsdk30
+FROM wenhsiaoyi/ubuntu-base:androidsdk30.0.3
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 
@@ -7,8 +7,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # install essential tools
 RUN \
-    apt-get install -y g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 && \
-    npm install -g nativescript@8.0.1  --unsafe-perm \
+    apt-get update \
+    && apt-get -y upgrade \
+    && apt-get install -y g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 \
+    && npm install -g nativescript@8.0.1  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
 

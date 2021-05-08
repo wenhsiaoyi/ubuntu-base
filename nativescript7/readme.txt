@@ -3,33 +3,33 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns7 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30 .
+docker build -t wenhsiaoyi/ubuntu-base:ns721 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30.0.3 .
 docker login
-docker push wenhsiaoyi/ubuntu-base:ns7
+docker push wenhsiaoyi/ubuntu-base:ns721
 
 
 
 
-docker run --rm -it wenhsiaoyi/ubuntu-base:ns7
+docker run --rm -it wenhsiaoyi/ubuntu-base:ns721
 
 
 第一次
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns7 wenhsiaoyi/ubuntu-base:ns7 bash
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns7 wenhsiaoyi/ubuntu-base:ns721 bash
 
 
 
 ##
-docker run -it --rm wenhsiaoyi/ubuntu-base:ns7 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
+docker run -it --rm wenhsiaoyi/ubuntu-base:ns721 /opt/android-sdk/tools/bin/sdkmanager --sdk_root=/opt/android-sdk --update
 
 
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4G" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns7 wenhsiaoyi/ubuntu-base:ns7
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4G" -it  -p 5037:5037  --rm -v $PWD:`pwd` -w `pwd` --name ns7 wenhsiaoyi/ubuntu-base:ns721
 
 
 
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4G" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns7 wenhsiaoyi/ubuntu-base:ns7
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4G" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns7 wenhsiaoyi/ubuntu-base:ns721
 
 # create container
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns7 wenhsiaoyi/ubuntu-base:ns7 bash
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns7 wenhsiaoyi/ubuntu-base:ns721 bash
 
 
 

@@ -3,7 +3,7 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns801 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30 .
+docker build -t wenhsiaoyi/ubuntu-base:ns801 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30.0.3 .
 docker login
 docker push wenhsiaoyi/ubuntu-base:ns801
 

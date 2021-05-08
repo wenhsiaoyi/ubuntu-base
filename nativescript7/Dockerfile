@@ -7,8 +7,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # install essential tools
 RUN \
-    apt-get install -y g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 && \
-    npm install -g nativescript@7.0.8  --unsafe-perm \
+    apt-get update \
+    && apt-get -y upgrade \
+    && apt-get install -y g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 && \
+    npm install -g nativescript@7.2.1  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
 
