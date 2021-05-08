@@ -39,9 +39,9 @@ git clean -fX
 
 
 ###加入該次commit的檢查碼
-$ git tag -a androidsdk e897094465
+git tag -a androidsdk30.0.3 9b53f986
 
-$ git tag
+git tag
 
 
 
