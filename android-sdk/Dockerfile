@@ -4,9 +4,13 @@ MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 # support multiarch: i386 architecture
 # install essential tools
-RUN dpkg --add-architecture i386 && \
-    apt-get install -y --no-install-recommends g++ build-essential subversion nano usbutils iproute2 net-tools \
-        iputils-ping libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386
+RUN \
+        dpkg --add-architecture i386 \
+        && apt-get update \
+        && apt-get -y upgrade \
+        && apt-get install -y --no-install-recommends g++ build-essential subversion nano usbutils iproute2 net-tools iputils-ping \
+            libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386
+
 
 # Common environment variables
 ENV DEBIAN_FRONTEND noninteractive
@@ -19,7 +23,7 @@ ARG GRADLE_DIST=bin
 ENV GRADLE_HOME /usr/local/gradle/
 
 # install android sdk
-ENV ANDROID_HOME /usr/local/android/sdk/
+ENV ANDROID_HOME /usr/local/android/sdk
 ENV ANDROID_SDK_HOME $ANDROID_HOME
 ARG ANDROID_SDK_VERSION=7302050
 
@@ -34,15 +38,15 @@ RUN cd /opt && \
     mkdir -p ${ANDROID_HOME}/ && \
     unzip /opt/commandlinetools-linux-${ANDROID_SDK_VERSION}_latest.zip -d ${ANDROID_HOME}/ && \
     rm /opt/commandlinetools-linux-${ANDROID_SDK_VERSION}_latest.zip && \
-    export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin" && \
+    export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}/cmdline-tools/bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin" && \
     #echo "24333f8a63b6825ea9c5514f83c2829b004d1feeroot@41ed651623a7" > "$ANDROID_HOME/licenses/android-sdk-license" && \
-    yes | ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
-    ${ANDROID_HOME}/tools/bin/sdkmanager --sdk_root=${ANDROID_HOME}  "tools"  "platform-tools" \
+    yes | ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses && \
+    ${ANDROID_HOME}/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME}  "tools"  "platform-tools" \
         "platforms;android-28" "platforms;android-29" "platforms;android-30" \
-        "build-tools;28.0.3" "build-tools;29.0.3" "build-tools;30.0.2"  \
+        "build-tools;28.0.3" "build-tools;29.0.3" "build-tools;30.0.3"  \
         "extras;android;m2repository" \
         "extras;google;m2repository" && \
-    echo 'export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}tools/:${ANDROID_HOME}tools/bin/:${ANDROID_HOME}platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin"' >> /root/.bashrc
+    echo 'export PATH="${PATH}:${GRADLE_HOME}bin/:${ANDROID_HOME}/cmdline-tools/bin/:${ANDROID_HOME}/tools/:${ANDROID_HOME}/tools/bin/:${ANDROID_HOME}/platform-tools/:${ANDROID_HOME}/build-tools/:${ANDROID_HOME}/build-tools/bin"' >> /root/.bashrc
 
 
 

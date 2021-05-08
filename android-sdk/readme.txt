@@ -1,14 +1,14 @@
 # Android SDK image
 included sdk 30
-included nnodejs 10 LTS
+included nodejs 15
 included JDK 8
 
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:androidsdk30 --cache-from wenhsiaoyi/ubuntu-base:node10 .
+docker build -t wenhsiaoyi/ubuntu-base:androidsdk30.0.3 --cache-from wenhsiaoyi/ubuntu-base:node15 .
 docker login
-docker push wenhsiaoyi/ubuntu-base:androidsdk30
+docker push wenhsiaoyi/ubuntu-base:androidsdk30.0.3
 
 
 
