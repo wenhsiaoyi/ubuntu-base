@@ -1,4 +1,4 @@
-FROM wenhsiaoyi/ubuntu-base:androidsdk30
+FROM wenhsiaoyi/ubuntu-base:androidsdk30.0.3
 MAINTAINER Jack Wen <http://github.com/wenhsiaoyi>
 
 
