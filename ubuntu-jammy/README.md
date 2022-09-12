@@ -23,14 +23,14 @@ docker run --rm -it wenhsiaoyi/ubuntu-base:jammy /bin/bash
 ## git log 查詢 commit 的檢查碼
 
 ###加入該次commit的檢查碼
-$ git tag -a focal bd30eb69abec4c52b09333b153e2413d746278f1
+$ git tag -a jammy 9a5ebe071985e7646f8929f8db62493ce1f814b1
 
 $ git tag
 
 
 
 
-$ git push origin focal
+$ git push origin jammy
 $ git push origin --tags
 
 
