@@ -10,7 +10,7 @@ RUN \
     apt-get update \
     && apt-get -y upgrade \
     && apt-get install -y g++ lib32z1 lib32ncurses5 libbz2-1.0:i386 libstdc++6:i386 \
-    && npm install -g nativescript@8.0.1  --unsafe-perm \
+    && npm install -g nativescript@8.0.2  --unsafe-perm \
         && apt-get clean \
         && apt-get purge -y --auto-remove
 
