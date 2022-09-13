@@ -3,15 +3,15 @@
 
 
 ## build image
-docker build -t wenhsiaoyi/ubuntu-base:ns801 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30.0.3 .
+docker build -t wenhsiaoyi/ubuntu-base:ns802 --cache-from wenhsiaoyi/ubuntu-base:androidsdk30.0.3 .
 docker login
-docker push wenhsiaoyi/ubuntu-base:ns801
+docker push wenhsiaoyi/ubuntu-base:ns802
 
 
 
-alias ns='docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns8 wenhsiaoyi/ubuntu-base:ns801 bash'
+alias ns='docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v /opt/projects:/opt/projects -w /opt/projects --name ns8 wenhsiaoyi/ubuntu-base:ns802 bash'
 
-alias ns='docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037 --rm -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns801 bash'
+alias ns='docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037 --rm -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns802 bash'
 alias ns='docker start -i ns8'
 
 
@@ -19,7 +19,7 @@ docker run --rm -it wenhsiaoyi/ubuntu-base:ns801
 
 
 第一次 create container
-docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns801 bash
+docker run --env JAVA_OPTS="-Xms1024M -Xmx4096M" -it  -p 5037:5037  -v $PWD:`pwd` -w `pwd` --name ns8 wenhsiaoyi/ubuntu-base:ns802 bash
 
 進入容器
 docker start -i ns8
